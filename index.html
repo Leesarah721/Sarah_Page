@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>이사라 포트폴리오</title>
+
+  <meta name="Subject" content="포트폴리오">
+  <meta name="Title" content="이사라 포트폴리오">
+  <meta name="Keywords" content="AI개발자">
+  <meta name="Description" content="빅데이터 분석과 AI 모델 학습 및 개발을 통해 사용자에게 더 나은 경험을 제공하는 AI 개발자">
+  <meta name="Author" content="이사라">
+  <meta name="Publisher" content="Leesarah">
+  <meta name="Classification" content="포트폴리오">
+  <meta name="Location" content="Seoul Korea">
+  <meta name="Author-Date" content="2024.10.18">
+  <meta name="Copyright" content="이사라">
+
+  <meta property="og:url" content="http://leesarah12.dothome.co.kr/">
+  <meta property="og:title" content="이사라 포트폴리오">  
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./이사라 포트폴리오_files/img/메인창.png">
+  <meta property="og:description" content="데이터 분석과 AI 모델 학습 및 개발을 통해 사용자에게 더 나은 경험을 제공하는 AI 개발자">
+
+
+  <link rel="shortcut icon" href="https://kim-ji-min.github.io/My-Portfolio/images/favicon.ico">
+  <link rel="stylesheet" href="./이사라 포트폴리오_files/reset.css">
+  <link rel="stylesheet" href="./이사라 포트폴리오_files/animate.css">
+  <link rel="stylesheet" href="./이사라 포트폴리오_files/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./이사라 포트폴리오_files/jquery-1.12.3.js.다운로드"></script>
+  <script src="./이사라 포트폴리오_files/jquery.easing.min.js.다운로드"></script>
+  <script src="./이사라 포트폴리오_files/wow.min.js.다운로드"></script>
+  <script src="./이사라 포트폴리오_files/function.js"></script>
+</head>
+
+<style>
+  /* 팝업 창 스타일 */
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 3px rgba(15, 15, 16, 0.5);
+    justify-content: center;
+    /* Flexbox 중앙 정렬 */
+    align-items: center;
+    /* Flexbox 중앙 정렬 */
+  }
+
+  .popup-content {
+    border-radius: 10px;
+    position: relative;
+    padding: 20px;
+    max-width: 70%;
+    /* 팝업 창의 최대 너비 설정 */
+    max-height: 80%;
+    /* 팝업 창의 최대 높이 설정 */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    /* 내부 요소들을 세로로 배치 */
+    overflow: auto;
+  }
+
+  .popup-content img {
+    max-width: 100%;
+    height: auto;
+    /* 이미지 높이 자동 조정 */
+    object-fit: contain;
+    /* 이미지가 비율을 유지하면서 전체 영역을 채우도록 설정 */
+    display: block;
+    /* 이미지가 인라인 요소가 아니라 블록 요소로 표시되도록 설정 */
+    margin-bottom: 20px;
+    /* 이미지 아래에 여백 추가 */
+  }
+
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(58, 58, 58, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .close::before,
+  .close::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    background-color: white;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .close::before {
+    transform: rotate(45deg) translateX(-50%);
+  }
+
+  .close::after {
+    transform: rotate(-45deg) translateX(-50%);
+  }
+
+  /* 팝업 스크롤 영역 스타일링 */
+  .popup-content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .popup-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .popup-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+
+  .popup-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<body>
+  <div id="wrap">
+    <header>
+      <div class="container">
+        <h2 class="sr-only">이사라 포트폴리오 메뉴</h2>
+
+        <nav>
+          <ul class="gnb clearfix">
+            <li class="on"><a href="https://kim-ji-min.github.io/My-Portfolio/#">HOME</a></li>
+            <li><a href="https://kim-ji-min.github.io/My-Portfolio/#">ABOUT ME</a></li>
+            <li><a href="https://kim-ji-min.github.io/My-Portfolio/#">SKILLS</a></li>
+            <li><a href="https://kim-ji-min.github.io/My-Portfolio/#">PROJECT</a></li>
+            <li><a href="https://kim-ji-min.github.io/My-Portfolio/#">DESIGN</a></li>
+            <li><a href="https://kim-ji-min.github.io/My-Portfolio/#">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <hr>
+
+    <section id="home" class="content0">
+      <div class="container">
+        <img src="./이사라 포트폴리오_files/img/프로필01.png" alt="프로필">
+        <p>PORTFOLIO<br>VOL.2</p>
+        <p>CREATIVE LEE SARAH</p>
+        <h1>Junior 
+          AI<br>Developer<br><span class="name">이사라</span></h1>
+      </div>
+    </section><!--end of main home-->
+
+    <hr>
+
+    <section id="aboutme" class="content1 clearfix wow fadeIn" data-wow-delay="100ms"
+      style="visibility: hidden; animation-delay: 100ms; animation-name: none;">
+      <div class="content1-left">
+        <h2>About me</h2>
+        <div class="about_bg">
+          <img src="./이사라 포트폴리오_files/img/프로필02.JPG" alt="">
+        </div>
+      </div><!--end of left-->
+
+      <div class="content1-right">
+        <div class="profile">
+          <h2 class="sr-only">프로필</h2>
+          <ul class="clearfix">
+            <li>
+              <h2>이사라</h2><br>
+              <b>생년월일</b> : 1996.07.21 (29세) <br>
+              <b>학력사항</b> : 장로회신학대학교 학부 신학과 졸업 (16.02 - 20.02)<br> &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; 장로회신학대학교 MDiv 신학과 졸업 (20.02 - 24.02)<br>
+              <b>교육사항</b> : 웹디자인 & 출판디자인 과정 수료 (23.08 - 23.12)<br> &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; 인공지능 AI 기반 OCR 개발 전문가 과정 수료 (24.03 - 24.09)<br>
+              <b>일반경력</b> : 소마사고력 수학학원 사무행정 (6개월)
+              <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;링블코리아 사무행정 (2개월)
+            </li>
+          </ul>
+
+        </div><!--end of profile-->
+
+        <div class="tag">
+          <h2 class="sr-only">나만의 키워드 태그</h2>
+
+          <ul class="clearfix">
+            <li><a href="https://sarrstudy.tistory.com/category/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D/%EC%8B%A4%EC%8A%B5?page=1" title="데이터분석 둘러보기">#데이터분석</a></li>
+            <li><a href="https://exuberant-asp-900.notion.site/77a972b9e8204061b4dd9395af0f5fe4" title="포트폴리오 둘러보기">#AI모델러</a></li>
+            <li><a href="#portfolio" title="기획안 보러가기">#웹기획</a></li>
+            <li><a href="#design" title="디자인 둘러보기">#웹디자인</a></li>
+            <li><a href="https://github.com/Leesarah721" title="포트폴리오 둘러보기">#3개의 프로젝트</a></li>
+          </ul>
+          <div class="image-container">
+            <a href="https://github.com/Leesarah721" target="_blank">
+                <img src="./이사라 포트폴리오_files/img/github1.png" alt="GitHub" width="70" height="70">
+            </a>
+            <a href="https://exuberant-asp-900.notion.site/77a972b9e8204061b4dd9395af0f5fe4" target="_blank">
+                <img src="./이사라 포트폴리오_files/img/notion.png" alt="Notion" width="70" height="70">
+            </a>
+            <a href="https://sarrstudy.tistory.com/" target="_blank">
+                <img src="./이사라 포트폴리오_files/img/tstory.png" alt="Tistory" width="70" height="70">
+            </a>
+        </div>
+        </div><!--end of tag-->
+      </div><!--end of right-->
+    </section><!--end of about me-->
+
+    <hr>
+
+    <section id="skills" class="content2 wow fadeIn" data-wow-delay="100ms"
+      style="visibility: hidden; animation-delay: 100ms; animation-name: none;">
+      <h2>I can do</h2><br>
+      <div>
+        <img src="./이사라 포트폴리오_files/img/python.png" alt="python">
+        <img src="./이사라 포트폴리오_files/img/mysql.png" alt="mysql">
+        <img src="./이사라 포트폴리오_files/img/mongo.png" alt="mongoDB">
+        <img src="./이사라 포트폴리오_files/img/react.png" alt="react">
+        <img src="./이사라 포트폴리오_files/img/nodejs.png" alt="nodejs">
+        <img src="./이사라 포트폴리오_files/img/fastapi.png" alt="fastapi">
+        <img src="./이사라 포트폴리오_files/img/html.png" alt="html">
+        <img src="./이사라 포트폴리오_files/img/CSS.png" alt="CSS">
+        <img src="./이사라 포트폴리오_files/img/JavaScript.png" alt="JavaScript">
+        <br>
+        <img src="./이사라 포트폴리오_files/img/pandas.png" alt="pandas">
+        <img src="./이사라 포트폴리오_files/img/numpy.png" alt="numpy">
+        <img src="./이사라 포트폴리오_files/img/scikitlearn.png" alt="scikitlearn">
+        <img src="./이사라 포트폴리오_files/img/keras.png" alt="keras">
+        <img src="./이사라 포트폴리오_files/img/pytorch.png" alt="pytorch">
+        <img src="./이사라 포트폴리오_files/img/tensorflow.png" alt="tensorflow">
+        <img src="./이사라 포트폴리오_files/img/opencv.png" alt="opencv">
+      </div>
+      <br><br>
+      <h2>and I can do too</h2><br>
+      <div>
+        <img src="./이사라 포트폴리오_files/img/git.png" alt="git">
+        <img src="./이사라 포트폴리오_files/img/github1.png" alt="github">
+        <img src="./이사라 포트폴리오_files/img/colab.png" alt="colab">
+        <img src="./이사라 포트폴리오_files/img/Visual.png" alt="Visual studio">
+        <img src="./이사라 포트폴리오_files/img/pycham.png" alt="pycham">
+        <img src="./이사라 포트폴리오_files/img/figma.png" alt="figma">
+        <img src="./이사라 포트폴리오_files/img/ps.png" alt="포토샵">
+        <img src="./이사라 포트폴리오_files/img/ai.png" alt="일러스트">
+        <img src="./이사라 포트폴리오_files/img/id.jpg" alt="인디자인">
+        <img src="./이사라 포트폴리오_files/img/pr.png" alt="프리미어">
+      </div>
+    </section><!--end of skills-->
+
+    <hr>
+
+    <section id="portfolio" class="content3">
+      <h2>AI TEAM POJECT</h2>
+      <div class="grid grid--span2">
+        <div class="img_box">
+          <a href="https://github.com/Leesarah721/PIP" target="_blank" class="image-link">
+          <img src="./이사라 포트폴리오_files/img/project1.jpg" alt="">
+        </a>
+      </div>
+        <div class="col1">
+          <h3>[ PIP ] Computer Vison Project<span> <br>&nbsp; &nbsp;:   개인정보가 보호되는 방송 스트리밍앱</span></h3>
+          <p>
+            1️⃣  기&nbsp; &nbsp;획 | YOLOv8을 사용하여 얼굴을 인식 후 자동으로 블러처리<br>
+            2️⃣  기&nbsp; &nbsp;간 | 24.07.21-24.09.04 (총 45일) <br>
+            3️⃣  발&nbsp; &nbsp;표 |  <a href="#" onclick="openPopup('hWxyy9OvbOw?si=b8c6483TlK8qgPeu')" style="color: #6393A6;"> 시연회 영상보러가기</a><br>
+            4️⃣  기획서 | <a href="#" data-img="./이사라 포트폴리오_files/img/poject1_.jpg" class="image-link" style="color: #6393A6;"> 자세히보기 </a> 
+            <a href="https://github.com/Leesarah721/PIP" target="_blank" >
+              <img src="./이사라 포트폴리오_files/img/github1.png" alt="GitHub" width="20" height="20" style="display: inline-block; vertical-align: middle;">
+          </a> <br>
+          </p>
+        </div>
+        <div class="img_box">
+          <a href="https://github.com/Leesarah721/-Calm-Calm-" target="_blank" class="image-link">
+          <img src="./이사라 포트폴리오_files/img/project2.png" alt="">
+        </a>
+        </div> 
+        <div class="col2">
+          <h3>[ 캄캄 ] NLP OCR TTS Project <br><span> &nbsp; &nbsp; :  감성챗봇 일기생성앱</span></h3>
+          <p>
+            1️⃣  기&nbsp; &nbsp;획 | 챗봇 감정분석 그림일기 생성앱<br>
+            2️⃣  기&nbsp; &nbsp;간 | 24.06.03-24.07.21 (총 48일) <br>
+            3️⃣  발&nbsp; &nbsp;표 |  <a href="#" onclick="openPopup('KK3KhCQJrcw?si=Wss1XVRyDMN7NtZf')" style="color: #6393A6;"> 시연회 영상보러가기</a><br>
+            4️⃣  기획서 | <a href="#" data-img="./이사라 포트폴리오_files/img/poject2_.jpg" class="image-link" style="color: #6393A6;"> 자세히보기 </a>             <a href="https://github.com/Leesarah721/-Calm-Calm-" target="_blank" >
+              <img src="./이사라 포트폴리오_files/img/github1.png" alt="GitHub" width="20" height="20" style="display: inline-block; vertical-align: middle;">
+          </a> <br>
+          </p>
+        </div>
+        <div class="img_box">
+          <a href="https://github.com/Leesarah721/SAVEMORE" target="_blank" class="image-link">
+            <img src="./이사라 포트폴리오_files/img/project3.png" alt="">
+          </a>
+        </div>
+        <div class="col3">
+          <h3>[ SAVEMORE ] Web Project <br><span> &nbsp;: &nbsp; 청년들을 위한 소비절약 정보소통앱</span></h3>
+          <p>
+            1️⃣  기&nbsp; &nbsp;획 | 정보 사각지대에 있는 취약계층을 위한 공공 어플리케이션<br>
+            2️⃣  기&nbsp; &nbsp;간 | 24.04.24-24.05.30 (총 36일) <br>
+            3️⃣  발&nbsp; &nbsp;표 |  <a href="#" onclick="openPopup('hFjsNfwdwBQ?si=IIdQUtQuxgsYIlk3')" style="color: #6393A6;"> 시연회 영상보러가기</a><br>
+            4️⃣  기획서 | <a href="#" data-img="./이사라 포트폴리오_files/img/poject3_.jpg" class="image-link" style="color: #6393A6;"> 자세히보기 </a> <a href="https://github.com/Leesarah721/SAVEMORE" target="_blank" >
+              <img src="./이사라 포트폴리오_files/img/github1.png" alt="GitHub" width="20" height="20" style="display: inline-block; vertical-align: middle;">
+          </a>  <br>
+          </p>
+        </div>
+      </div>
+
+
+
+    </section><!--end of portfolio-->
+
+    <hr>
+
+    <section id="design" class="content4">
+      <h2>PUBLISHING WEB DESIGN</h2>
+
+      <div class="container">
+        <div class="grid grid--gallery">
+          <div class="small 1"><a href="#" data-img="./이사라 포트폴리오_files/img/꽃.jpg">앨범커버</a></div>
+          <div class="small 2"><a href="#" data-img="./이사라 포트폴리오_files/img/캐릭터 상세.jpg">캐릭터 디자인</a></div>
+          <div class="big 3"><a href="#" data-img="./이사라 포트폴리오_files/img/북커버.jpg">북커버디자인</a></div>
+          <div class="wide 4"><a href="./까르띠에/index.html"  target="_blank">웹디자인</a></div>
+        </div>
+        <div class="grid grid--gallery">
+          <div class="small 5"><a href="#" data-img="./이사라 포트폴리오_files/img/까르띠에상세.jpg">상세페이지</a></div>
+          <div class="small 6"><a href="#" data-img="./이사라 포트폴리오_files/img/제네바스피커상세.jpg">상세페이지</a></div>
+          <div class="big 7"><a href="#" data-img="./이사라 포트폴리오_files/img/팜플렛2.jpg">팜플렛디자인</a></div>
+          <div class="wide 8"><a href="./올리브영/index.html"  target="_blank">웹디자인</a></div>
+        </div>
+
+        <!-- 팝업 창 -->
+        <div id="myPopup" class="popup">
+          <div class="popup-content">
+            <button class="close"></button>
+            <img id="popupImage" src="" alt="Popup Image">
+          </div>
+        </div>
+        <!-- 아이프레임창 -->
+        <div class="video-popup" id="videoPopup">
+          <div class="video-content">
+            <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <button class="close-button" onclick="closePopup()">닫기</button>
+          </div>
+        </div>
+
+    </section><!--end of design-->
+
+    <hr>
+
+    <section id="contact" class="content5 wow fadeIn" data-wow-delay="100ms"
+      style="visibility: hidden; animation-delay: 100ms; animation-name: none;">
+      <h2>Contact</h2>
+      <div class="contact_img"></div>
+
+      <div class="container">
+        <p>
+          "책임감 있게 데이터를 다루며,<br>
+          <strong>정보 분석과 AI 모델 학습 및 개발</strong>을 통해  <br> <strong> 삶에 편리함과 가치를 더하는 것을 목표</strong>로 하는<br>
+          <strong>AI 개발자, 이사라</strong>가 되겠습니다."
+        </p>
+        <p>
+          연락처 : leesarah721@naver.com, 010 7137 0361<br>
+        </p>
+
+    </section><!--end of contact-->
+
+    <hr>
+
+    <footer>
+      <address>
+        본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.<br>
+      </address>
+    </footer>
+  </div>
+
+  </div>
+
+
+  <!-- 아이프레임 열기-->
+  <script>
+    var scrollTop; // 스크롤 위치를 저장하기 위한 변수
+
+    function openPopup(videoId) {
+      var videoFrame = document.getElementById('videoFrame');
+      videoFrame.src = 'https://www.youtube.com/embed/' + videoId;
+
+      var videoPopup = document.getElementById('videoPopup');
+      videoPopup.style.display = 'block';
+      // 스크롤 위치 저장
+      scrollTop = window.scrollY;
+      // 스크롤 위치 조정
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = -scrollTop + 'px';
+    }
+
+    function closePopup() {
+      var videoPopup = document.getElementById('videoPopup');
+      videoPopup.style.display = 'none';
+      // 스크롤 위치 복원
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, scrollTop);
+
+      // 아이프레임 종료
+      var videoFrame = document.getElementById('videoFrame');
+      videoFrame.src = '';
+    }
+  </script>
+  <script>
+
+    // 팝업 창을 띄우는 함수
+    function showPopup(imgSrc) {
+      var popup = document.getElementById('myPopup');
+      var popupImage = document.getElementById('popupImage');
+      popupImage.src = imgSrc;
+      popup.style.display = "flex"; // Flexbox를 사용하여 중앙 정렬
+    }
+
+    // 모든 a 태그에 클릭 이벤트를 추가
+    var links = document.querySelectorAll('.grid--gallery a');
+    links.forEach(function (link) {
+      link.onclick = function (event) {
+        var imgSrc = this.getAttribute('data-img');
+        if (imgSrc) {
+          event.preventDefault();
+          console.log("Image source: " + imgSrc); // 디버깅 메시지 추가
+          showPopup(imgSrc);
+        }
+      }
+    });
+
+    // "자세히 보기" 링크에 대한 클릭 이벤트 추가
+    var detailLinks = document.querySelectorAll('.image-link');
+    detailLinks.forEach(function(link) {
+        link.onclick = function(event) {
+          var imgSrc = this.getAttribute('data-img');
+        if (imgSrc) {
+          event.preventDefault();
+          console.log("Image source: " + imgSrc); // 디버깅 메시지 추가
+          showPopup(imgSrc);
+        }
+      }
+    });
+
+    // 팝업 창을 닫는 기능
+    document.getElementsByClassName('close')[0].onclick = function () {
+      document.getElementById('myPopup').style.display = "none";
+    }
+
+    // 팝업 창 바깥을 클릭하면 닫기
+    window.onclick = function (event) {
+      if (event.target == document.getElementById('myPopup')) {
+        document.getElementById('myPopup').style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
